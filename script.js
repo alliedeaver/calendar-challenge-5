@@ -2,7 +2,7 @@
 
 // the code isn"t run until the browser has finished rendering all the elements
 // in the html.
-//let buttonEl = $(".saveBtn");
+let buttonEl = $(".saveBtn");
 let currentDay = $("#currentDay");
 let currentHour = parseInt(dayjs().format("HH"));
 //let past =$(".past");
@@ -10,15 +10,23 @@ let currentHour = parseInt(dayjs().format("HH"));
 //let future = $(".future");
 //let hour9 = $(".hour-9");
 //let column2 = $(".col-2 col-md-1 hour text-center py-3");
-//let columnScrip = $(".col-8 col-md-10 description");
-
+let columnScrip = $(".description");
 
 
 currentDay.text((dayjs().format("dddd MMM D, YYYY")));
 
+$(document).ready(function (){
+buttonEl.click(function() {
+    columnScrip.each(function(){
+        let text=$(this).val();
+        let time=$(this).parent().attr("id");
+        localStorage.setItem(time, text);
+    }
+)});
 
 $(".time-block").each(function() {
 let timeBlock = parseInt($(this).attr("id").split("-")[1]);
+
  if (currentHour > timeBlock) 
     $(this).addClass("past")
 
@@ -28,21 +36,20 @@ if (currentHour == timeBlock)
 if (currentHour < timeBlock) 
     $(this).addClass("future")
 
-});
+$('#hour-9 .description').val(localStorage.getItem('hour-9'));
+$('#hour-10 .description').val(localStorage.getItem('hour-10'));
+$('#hour-11 .description').val(localStorage.getItem('hour-11'));
+$('#hour-12 .description').val(localStorage.getItem('hour-12'));
+$('#hour-13 .description').val(localStorage.getItem('hour-13'));
+$('#hour-14 .description').val(localStorage.getItem('hour-14'));
+$('#hour-15 .description').val(localStorage.getItem('hour-15'));
+$('#hour-16 .description').val(localStorage.getItem('hour-16'));
+$('#hour-17 .description').val(localStorage.getItem('hour-17'));
+$('#hour-18 .description').val(localStorage.getItem('hour-18'));
+$('#hour-19 .description').val(localStorage.getItem('hour-19'));
 
 
-  //  $(".saveBtn").on("click", function () {
-
-    //});
-    
-
-//function renderMessage() {
-  //  let userInput = JSON.parse(localStorage.getItem("columnScrip"));
-
-    //  $("userInput").textContent = 
-    
-
-
+})});
 
 
 
