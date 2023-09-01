@@ -1,44 +1,47 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 
-// the code isn't run until the browser has finished rendering all the elements
+// the code isn"t run until the browser has finished rendering all the elements
 // in the html.
-let display = document.querySelector('#display-3')
-let leadApp = document.querySelector('#lead')
-let currentDay = document.querySelector('#currentDay')
-let hourTabs = document.querySelector('#container-fluid px-5')
-let past = document.querySelector('#past')
-let present = document.querySelector('#present')
-let future = document.querySelector('#future')
-let hour9 = document.querySelector('#hour-9')
-let timeBlock = document.querySelector('#row time-block past')
-let column2 = document.querySelector('#col-2 col-md-1 hour text-center py-3')
-let columnScrip = document.querySelector('#col-8 col-md-10 description')
-
-
-dayjs().format("HH")
-
-$('#currentDay').text ((dayjs().format("dddd MMM D, YYYY")));
+//let buttonEl = $(".saveBtn");
+let currentDay = $("#currentDay");
+let currentHour = parseInt(dayjs().format("HH"));
+//let past =$(".past");
+//let present = $(".present");
+//let future = $(".future");
+//let hour9 = $(".hour-9");
+//let column2 = $(".col-2 col-md-1 hour text-center py-3");
+//let columnScrip = $(".col-8 col-md-10 description");
 
 
 
-$(".timeblock").each(function() {   
- currentHour > timeBlock) {
+currentDay.text((dayjs().format("dddd MMM D, YYYY")));
+
+
+$(".time-block").each(function() {
+let timeBlock = parseInt($(this).attr("id").split("-")[1]);
+ if (currentHour > timeBlock) 
     $(this).addClass("past")
-}
 
-if (currentHour == timeBlock) {
+if (currentHour == timeBlock) 
     $(this).addClass("present")
-}
-if (currentHour < timeBlock) {
+
+if (currentHour < timeBlock) 
     $(this).addClass("future")
-}
+
+});
 
 
+  //  $(".saveBtn").on("click", function () {
 
-    $(".saveBtn").on("click", function () {
-
-    })
+    //});
     
+
+//function renderMessage() {
+  //  let userInput = JSON.parse(localStorage.getItem("columnScrip"));
+
+    //  $("userInput").textContent = 
+    
+
 
 
 
